@@ -10,7 +10,7 @@
 
     // Node + Types
     "lib": ["es2020"],
-    "types": ["node"],
+    "types": ["node","vitest"],
 
     // Qualidade e segurança
     "strict": true,
