@@ -1,0 +1,26 @@
+{
+  "name": "backendts",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prisma": "prisma",
+    "migrate": "prisma migrate dev",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.12.0",
+    "express": "^5.1.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^20.11.0",
+    "@types/uuid": "^10.0.0",
+    "prisma": "^5.12.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.5.0"
+  }
+}

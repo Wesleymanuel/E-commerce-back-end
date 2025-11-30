@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+
+    // Diretórios
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    // Node + Types
+    "lib": ["es2020"],
+    "types": ["node"],
+
+    // Qualidade e segurança
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Suporte ESM moderno
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    // Mapeamento Sourcemaps
+    "sourceMap": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
