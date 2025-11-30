@@ -1,16 +1,24 @@
-import { describe, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { UserEndity } from "../../endities/userEndity.js";
 import { createUserUseCases } from "./createUserUseCases.js";
 import { IcreateUSerRepository } from '../../repository/IcreateUserRepository.js'
 
 describe("shuld be able to create a new user", () => {
-    it("shuld be able to create a new user", () => {
-        const newUseCasesTest = new UserEndity({
+    it("shuld be able to create a new user", async () => {
+
+        const testFunctions = {
+            findByEmail :  vi.fn().mockResolvedValue(null),
+            createUser : vi.fn()
+        }
+
+        const userCases = new createUserUseCases(testFunctions)
+        await userCases.handle({
             nome : "teste",
             sobrenome : "junior",
             email : "testeJunior@gmail.com",
             password : "teste123445",
             cpf : "000.000.000-00"
         })
+        expect(testFunctions.createUser).toHaveBeenCalled();
     })
 })
