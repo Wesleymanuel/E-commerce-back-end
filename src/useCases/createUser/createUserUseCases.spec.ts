@@ -1,7 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { UserEndity } from "../../endities/userEndity.js";
 import { createUserUseCases } from "./createUserUseCases.js";
-import { IcreateUSerRepository } from '../../repository/IcreateUserRepository.js'
 
 describe("shuld be able to create a new user", () => {
     it("shuld be able to create a new user", async () => {
