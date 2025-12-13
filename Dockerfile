@@ -1,6 +1,8 @@
-FROM node:alpine AS builder
+FROM node:18-bullseye  AS builder
 
 WORKDIR /app
+
+RUN apt-get update -y && apt-get install -y openssl
 
 COPY package*.json ./
 
@@ -12,9 +14,11 @@ RUN npx prisma generate
 
 RUN npm run build
 
-FROM node:alpine AS runner
+FROM node:18-bullseye  AS runner
 
 WORKDIR /app
+
+RUN apt-get update -y && apt-get install -y openssl
 
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules

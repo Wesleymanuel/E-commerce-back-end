@@ -10,7 +10,7 @@ services:
       - .env
     depends_on:
       - postgres
-    network:
+    networks:
       - private
 
   postgres:
@@ -28,9 +28,9 @@ services:
     image: nginx:alpine
     container_name: nginx
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
-      ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on: 
       - backend 
     networks:
