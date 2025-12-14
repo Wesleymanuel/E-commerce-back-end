@@ -12,8 +12,18 @@ export class createUserUseCasesController{
 
             res.status(201).json({msg : "user was create whith sucess."})
         }
-        catch(error){
-           res.status(500).json({msg : "user wasn't create whith sucess, internal server error" , error})
+        catch (error) {
+        console.error("CREATE USER ERROR >>>", error);
+
+        if (error instanceof Error) {
+            return res.status(400).json({
+            msg: error.message
+            });
+        }
+
+        return res.status(500).json({
+            msg: "internal server error"
+        });
         }
     }
 }

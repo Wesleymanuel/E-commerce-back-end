@@ -18,11 +18,13 @@ export class UserEndity{
         throw  Error("names are invalids")
     }
 
-    if(!props.email.includes("@gmail.com")){
-        throw new Error("email aren't in correct format")
-    }
-    if(!props.cpf.includes("000.000.000-00")){
-        throw new Error("email aren't in correct format")
+   if (!props.email.includes("@")) {
+        throw new Error("invalid email format");
+    }  
+
+    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    if (!cpfRegex.test(props.cpf)) {
+        throw new Error("invalid cpf format");
     }
     }
   
