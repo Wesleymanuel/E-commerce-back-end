@@ -15,11 +15,20 @@ datasource db {
 
 model User{
   id String @id @default(uuid())
-  nome String
-  sobrenome String
+  firstName String
+  secondName String
+  bornDate DateTime
+  adress String
   email String @unique
   password String
-  cpf String
+  cpf String  @unique
+  rg String @unique
+  phoneNumber String
+  banckAccont String 
+  banckAgency String
+  credityCard String
+  cvc String
+  validDate String
 
   @@map("User")
 }

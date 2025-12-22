@@ -1,20 +1,57 @@
-export class UserEndity{
+interface UserSetings {
     id?: string
-    nome : string
-    sobrenome : string
+    firstName: string
+    secondName: string
+    bornDate : Date
+    adress : string
     email : string
-    password : string
-    cpf : string
+    password: string
+    cpf: string 
+    rg: string 
+    phoneNumber: string
+    banckAccont: string 
+    banckAgency: string
+    credityCard: string
+    cvc: string
+    validDate: string
+}
 
-    constructor(props : {id ?: string ,nome : string, sobrenome : string, email : string, password : string, cpf : string }) {
-        this.id = props.id
-        this.nome = props.nome
-        this.sobrenome =props.sobrenome
+
+export class UserEndity{
+    id?: string 
+    firstName: string
+    secondName: string
+    bornDate : Date
+    adress : string
+    email : string
+    password: string
+    cpf: string 
+    rg: string 
+    phoneNumber: string
+    banckAccont: string 
+    banckAgency: string
+    credityCard: string
+    cvc: string
+    validDate: string
+
+    constructor(props : Omit<UserSetings,'id'> , id ?: string ) {
+        this.id = id
+        this.firstName = props.firstName
+        this. secondName = props.secondName
+        this.bornDate = props.bornDate
+        this.adress = props.adress
         this.email = props.email
         this.password = props.password
         this.cpf = props.cpf
+        this.rg = props.rg
+        this.phoneNumber = props.phoneNumber
+        this.banckAccont = props.banckAccont
+        this.banckAgency = props.banckAgency
+        this.credityCard = props.credityCard
+        this.cvc = props.cvc
+        this.validDate = props.validDate
 
-    if(!props.nome || !props.sobrenome){
+    if(!props.firstName || !props.secondName){
         throw  Error("names are invalids")
     }
 

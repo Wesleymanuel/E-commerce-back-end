@@ -16,11 +16,20 @@ export class createUserRepository implements IcreateUSerRepository{
     async createUser(data: UserEndity): Promise<void> {
          await prisma.user.create({
             data : {
-                nome: data.nome,
-                sobrenome: data.sobrenome,
-                email: data.email,
-                password: data.password,
-                cpf: data.cpf
+                firstName : data.firstName,
+                secondName : data.secondName,
+                bornDate : data.bornDate,
+                adress : data.adress,
+                email  :data.email,
+                password : data.password,
+                cpf : data.cpf,
+                rg : data.rg,
+                phoneNumber : data.phoneNumber,
+                banckAccont : data.banckAccont,
+                banckAgency : data.banckAgency,
+                credityCard : data. credityCard,
+                cvc : data.cvc,
+                validDate : data.validDate
             }
          })
      }
