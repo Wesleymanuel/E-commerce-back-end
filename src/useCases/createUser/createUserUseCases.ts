@@ -28,6 +28,7 @@ export class createUserUseCases{
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
+            type : "ACCOUNT_CREATION",
             to: data.email,
             subject: "Bem-vindo!",
             message: `<b>
