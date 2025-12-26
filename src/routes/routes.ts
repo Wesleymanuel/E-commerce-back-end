@@ -8,6 +8,9 @@ import { deleteUserUseCasesController } from "../useCases/deleteUser/deleteUserU
 import { updateUserRepository } from "../repository/upadateUserRepository.js";
 import { updateUserUseCases } from "../useCases/updateUser/updateUserUseCases.js";
 import { updateUserUseCasesController } from "../useCases/updateUser/updateUserController.js";
+import { loginUserRepository } from "../repository/loginUserRepository.js";
+import { LoginUserUseCases } from "../useCases/loginUser/loginUserUseCases.js";
+import { LoginUserController } from "../useCases/loginUser/loginUserController.js";
 
 
 const router = Router()
@@ -24,10 +27,16 @@ const updatedUserRepositoryRotes = new updateUserRepository()
 const updatedUserUseCasesRoutes = new updateUserUseCases(updatedUserRepositoryRotes)
 const updatedUserUseCasesControllerRoutes = new updateUserUseCasesController(updatedUserUseCasesRoutes)
 
+const loginUserRepositoryRoutes = new loginUserRepository()
+const loginUserUseCasesRoutes = new LoginUserUseCases(loginUserRepositoryRoutes)
+const loginUserController = new LoginUserController(loginUserUseCasesRoutes)
+
 router.post('/userscreate', (req, res) => createUserUseCasesControllerRoutes.execute(req, res))
 
 router.post('/usersdelete', (req, res) => deletedUserUseCasesControllerRoutes.executeDelete(req, res))
 
 router.put('/userupdate', (req, res) => updatedUserUseCasesControllerRoutes.executeUpdate(req, res))
+
+router.post('/login' ,(req , res) => loginUserController.loginUser(req , res))
 
 export { router } 
