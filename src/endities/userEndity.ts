@@ -37,7 +37,7 @@ export class UserEndity{
     constructor(props : Omit<UserSetings,'id'> , id ?: string ) {
         this.id = id
         this.firstName = props.firstName
-        this. secondName = props.secondName
+        this.secondName = props.secondName
         this.bornDate = props.bornDate
         this.adress = props.adress
         this.email = props.email

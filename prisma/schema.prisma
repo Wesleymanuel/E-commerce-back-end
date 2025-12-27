@@ -29,6 +29,24 @@ model User{
   credityCard String
   cvc String
   validDate String
+  buy Buy[]
 
   @@map("User")
+}
+
+model Buy{
+  buyId String @id @default(uuid())
+  userName  String
+  userEmail String
+  userId  String
+  userCPF  String
+  user_id User @relation(fields: [userId], references: [id])
+  productID String
+  productTitle String
+  productPrice Float
+  discount Float
+  finalValue Float
+  day DateTime
+
+  @@map("Buy")
 }
