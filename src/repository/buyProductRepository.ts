@@ -14,10 +14,10 @@ export class buyProductRepository implements IbuyProductRepository{
         return user ?? null
     }
 
-    async purchases(id: string): Promise<buyEndity | null> {
+    async purchases(email: string): Promise<buyEndity | null> {
         const purchase = await prisma.buy.findFirst({
             where : {
-                userId: id
+                userEmail: email
             }
         })
 
@@ -27,15 +27,12 @@ export class buyProductRepository implements IbuyProductRepository{
     async confirm(data: buyEndity): Promise<void> {
         await prisma.buy.create({
             data : {
-                userName : data.userId,
+                userName : data.userName,
                 userEmail: data.userEmail,
-                userId : data.userId,
                 userCPF : data.userCPF,
-                productID: data.productID,
+                userCredityCard : data.userCredityCard,
                 productTitle: data.productTitle,
                 productPrice : data.productPrice,
-                discount : data.discount,
-                finalValue : data.finalValue,
                 day: data.day
             }
         })

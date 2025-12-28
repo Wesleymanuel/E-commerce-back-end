@@ -4,11 +4,11 @@ import { Request, Response } from 'express';
 export class buyProductUseCasesController{
     constructor(private BuyProductUseCases: buyProductUseCases ){}
 
-    async hadle(req : Request, res : Response){
-        const { userName, userEmail, userId, userCPF, productID, productTitle, productPrice, discount, day } = req.body;
+    async handle(req : Request, res : Response){
+        const { userName, userEmail, userCredityCard, userCPF, productTitle, productPrice, day } = req.body;
 
         try {
-            await this.BuyProductUseCases.handle({ userName, userEmail, userId, userCPF, productID, productTitle, productPrice, discount, day })
+            await this.BuyProductUseCases.handle({ userName, userEmail, userCredityCard , userCPF, productTitle, productPrice, day })
             res.status(201).json({msg : "buy registred with sucesses"})
         } catch (error) {
             console.error("CREATE USER ERROR >>>", error);
